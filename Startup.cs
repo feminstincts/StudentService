@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using StudentService.Data;
+using StudentService.Services;
 
 namespace StudentService
 {
@@ -34,6 +35,7 @@ namespace StudentService
             services.AddControllers();
 
             services.AddScoped<IStudentRepo, InMemoryStudentRepo>();
+            services.AddScoped<IStudentService, StudentService.Services.StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

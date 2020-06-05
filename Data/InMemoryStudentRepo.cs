@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using StudentService.Models;
 
 namespace StudentService.Data
@@ -18,6 +20,16 @@ namespace StudentService.Data
             }
             _context.Students.Add(student);
             SaveChanges();
+        }
+        
+        public IEnumerable<Student> ReadAllStudent()
+        {
+            return _context.Students.ToList();
+        }
+
+        public Student ReadStudentById(int id)
+        {
+            return _context.Students.FirstOrDefault(x => x.Id == id);
         }
 
         private bool SaveChanges()
